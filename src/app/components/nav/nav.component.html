@@ -1,0 +1,26 @@
+<nav class="navbar navbar-dark navbar-expand mb-3">
+  <a routerLink="/" class="navbar-brand">Breaking Bad Quotes</a>
+  <ul class="navbar-nav ml-auto">
+    <li
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-item"
+    >
+      <a routerLink="/" class="nav-link">Home</a>
+    </li>
+    <li
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-item"
+    >
+      <a routerLink="/random-quote" class="nav-link">Random Quote</a>
+    </li>
+    <li
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-item"
+    >
+      <a routerLink="/discussion" class="nav-link">Discuss Quotes</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,59 @@
+<div *ngIf="characters?.length > 0 && hasLoaded" class="card card-body bg-dark">
+  <ul class="list-group">
+    <li *ngFor="let theQuote of quote" class="list-group-item bg-light mt-2">
+      <strong>"{{ theQuote.quote }}"</strong> <br />
+      <small
+        ><em> -- {{ theQuote.author }} </em></small
+      >
+      <div *ngFor="let character of characters">
+        <div
+          *ngIf="
+            theQuote.author == character.firstName + ' ' + character.lastName
+          "
+        >
+          <button
+            class="float-right btn btn-warning"
+            (click)="character.isHidden = !character.isHidden"
+          >
+            <i
+              [ngClass]="character.isHidden ? 'fa fa-plus' : 'fa fa-minus'"
+            ></i>
+          </button>
+          <div
+            class="mt-3"
+            *ngIf="
+              !character.isHidden &&
+              character.age &&
+              character.job &&
+              character.address
+            "
+          >
+            {{ character.firstName }} {{ character.lastName }} is
+            {{ character.age }} years old. We works as a {{ character.job }}. He
+            lives at {{ character.address.street }}
+            {{ character.address.city }}, {{ character.address.state }}.
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div *ngIf="!hasLoaded" class=" card card-body bg-dark loading-text">
+  <div class="container">
+    <div class="row">
+      <h3>Loading Quote...</h3>
+      <br />
+      <hr />
+      <div class="loader mt-3"></div>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="characters?.length === 0">No Characters...</p>
+
+<button
+  (click)="callRetrieveQuote()"
+  class="btn btn-danger btn-block mt-2 mb-3"
+>
+  Generate Quote
+</button>

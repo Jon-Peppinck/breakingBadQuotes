@@ -1,0 +1,13 @@
+.buttons {
+  margin-top: 40vh;
+}
+@media only screen and (max-width: 600px) {
+  .buttons {
+    display: none;
+  }
+}
+@media only screen and (max-height: 400px) {
+  .buttons {
+    display: none;
+  }
+}

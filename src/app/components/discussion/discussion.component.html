@@ -1,0 +1,142 @@
+<button
+  (click)="displayForm = !displayForm"
+  class="btn btn-danger btn-block mb-3"
+>
+  Discuss Quote
+</button>
+<div *ngIf="displayForm" class="card card-body">
+  <form #quoteForm="ngForm" (ngSubmit)="submitQuote(quoteForm)">
+    <div class="form-group">
+      <label>First Name</label>
+      <input
+        [(ngModel)]="selectedInterpretation.firstName"
+        #quoteFirstName="ngModel"
+        [ngClass]="{
+          'is-invalid': quoteFirstName.errors && quoteFirstName.touched
+        }"
+        type="text"
+        class="form-control"
+        name="firstName"
+        required
+        minlength="2"
+        maxlength="20"
+        #firstName
+      />
+      <div [hidden]="!quoteFirstName.errors?.required" class="invalid-feedback">
+        Please enter a first name.
+      </div>
+      <div
+        [hidden]="!quoteFirstName.errors?.minlength"
+        class="invalid-feedback"
+      >
+        Must be at least 2 characters.
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input
+        [(ngModel)]="selectedInterpretation.lastName"
+        #quoteLastName="ngModel"
+        [ngClass]="{
+          'is-invalid': quoteLastName.errors && quoteLastName.touched
+        }"
+        type="text"
+        class="form-control"
+        name="lastName"
+        required
+        minlength="2"
+        maxlength="20"
+        #lastName
+      />
+      <div [hidden]="!quoteLastName.errors?.required" class="invalid-feedback">
+        Please enter a last name.
+      </div>
+      <div [hidden]="!quoteLastName.errors?.minlength" class="invalid-feedback">
+        Must be at least 2 characters.
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Quote</label>
+      <input
+        [(ngModel)]="selectedInterpretation.quote"
+        #quoteQuote="ngModel"
+        [ngClass]="{
+          'is-invalid': quoteQuote.errors && quoteQuote.touched
+        }"
+        type="text"
+        class="form-control"
+        name="favQuote"
+        required
+        minlength="10"
+        maxlength="200"
+        #quote
+      />
+      <div [hidden]="!quoteQuote.errors?.required" class="invalid-feedback">
+        Please enter the quote.
+      </div>
+      <div [hidden]="!quoteQuote.errors?.minlength" class="invalid-feedback">
+        Must be at least 10 characters.
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Interpretation</label>
+      <input
+        [(ngModel)]="selectedInterpretation.interpretation"
+        #quoteInterpretation="ngModel"
+        [ngClass]="{
+          'is-invalid':
+            quoteInterpretation.errors && quoteInterpretation.touched
+        }"
+        type="text"
+        class="form-control"
+        name="interpretation"
+        required
+        minlength="10"
+        maxlength="200"
+        #interpretation
+      />
+      <div
+        [hidden]="!quoteInterpretation.errors?.required"
+        class="invalid-feedback"
+      >
+        Please enter the interpretation of the quote.
+      </div>
+      <div
+        [hidden]="!quoteInterpretation.errors?.minlength"
+        class="invalid-feedback"
+      >
+        Must be at least 10 characters.
+      </div>
+    </div>
+    <button
+      *ngIf="!editState"
+      (click)="
+        addQuote(
+          firstName.value,
+          lastName.value,
+          quote.value,
+          interpretation.value
+        )
+      "
+      [disabled]="!quoteForm.form.valid"
+      class="btn btn-warning btn-block"
+    >
+      Post
+    </button>
+    <button
+      *ngIf="editState"
+      (click)="
+        updateQuote(
+          firstName.value,
+          lastName.value,
+          quote.value,
+          interpretation.value
+        )
+      "
+      [disabled]="!quoteForm.form.valid"
+      class="btn btn-danger btn-block"
+    >
+      Update
+    </button>
+  </form>
+</div>

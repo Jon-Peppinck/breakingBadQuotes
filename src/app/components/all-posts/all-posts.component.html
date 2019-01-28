@@ -1,0 +1,48 @@
+<app-discussion
+  [editState]="editState"
+  [selectedInterpretation]="selectedInterpretation"
+  (quoteInterpretation)="onSubmitQuote($event)"
+  (editQuoteInterpretation)="onEditedQuote($event)"
+></app-discussion>
+
+<div *ngIf="interpretations.length > 0">
+  <h2 class="mt-2 quoteDiscText">Quotes Discussion</h2>
+  <div class="card card-body mb-5">
+    <div class="card-body" *ngFor="let interpretation of interpretations">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10">
+            <a routerLink="/post/{{ interpretation.uniqueNumber }}">
+              <p class="quoteText">
+                <strong> "{{ interpretation.quote }}"</strong>
+                <small>
+                  <em>
+                    -- {{ interpretation.firstName }}
+                    {{ interpretation.lastName }}
+                  </em>
+                </small>
+              </p>
+            </a>
+
+            <p>{{ interpretation.interpretation }}</p>
+          </div>
+          <div class="col-md-2">
+            <button
+              (click)="editInterpretation(interpretation)"
+              class="btn btn-light m-2"
+            >
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button
+              (click)="deleteInterpretation(interpretation)"
+              class="btn btn-danger m-2"
+            >
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>
