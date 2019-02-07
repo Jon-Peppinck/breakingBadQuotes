@@ -11,3 +11,7 @@ https://breaking-bad-quote-list.herokuapp.com/
 https://breaking-bad-quote-list.herokuapp.com/quote
 
 CRUD functionality to local storage only.
+
+Front end Deployed:
+
+https://breaking-bad-app.herokuapp.com/
