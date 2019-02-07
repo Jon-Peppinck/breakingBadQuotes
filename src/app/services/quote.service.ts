@@ -7,7 +7,7 @@ import { Quote } from '../interfaces/Quote';
   providedIn: 'root'
 })
 export class QuoteService {
-  quoteURL: string = 'https://breaking-bad-quotes.herokuapp.com/v1/quotes';
+  quoteURL: string = 'https://breaking-bad-quote-list.herokuapp.com/quote';
   constructor(private http: HttpClient) {}
 
   retrieveQuote(): Observable<Quote> {
