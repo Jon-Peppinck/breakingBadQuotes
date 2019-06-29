@@ -13,11 +13,11 @@ API
 
 Connects to a node/express back-end to make **get requests only**.
 
-** API - For all of the breaking bad quotes **
+**API - For all of the breaking bad quotes**
 
 https://breaking-bad-quote-list.herokuapp.com/
 
-** API - for a random single breaking bad quote **
+**API - for a random single breaking bad quote**
 
 https://breaking-bad-quote-list.herokuapp.com/quote
 
