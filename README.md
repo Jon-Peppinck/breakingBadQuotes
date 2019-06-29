@@ -1,18 +1,29 @@
-#Angular-Node-Express breakingBadQuotes
+------------------------------------------
+**Angular-Node-Express breakingBadQuotes**
+------------------------------------------
 
-This is the front end for the breaking bad quote application
+This is the front end for the breaking bad quote application.
+You can generate a random quote which connects to an API.
+It has simple CRUD functionality - create read update and delete quotes. 
+Note: There is no database and all data is persisting to local storage only.
 
-Connects to a node.js to make get requests only.
+------
+API
+------
 
-// For all of the breaking bad quotes
+Connects to a node/express back-end to make **get requests only**.
+
+** API - For all of the breaking bad quotes **
 
 https://breaking-bad-quote-list.herokuapp.com/
 
-// for a random single breaking bad quote
+** API - for a random single breaking bad quote **
 
 https://breaking-bad-quote-list.herokuapp.com/quote
 
-CRUD functionality to local storage only.
+-----------
+Deployment
+-----------
 
 Front end Deployed:
 
